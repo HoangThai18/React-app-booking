@@ -1,0 +1,264 @@
+.cus-sidebar-content-display {
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.room-items {
+  display: flex;
+  gap: 45px;
+  flex-wrap: wrap;
+}
+.room-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+}
+.room-item-top {
+  width: 100%;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+}
+.room-item-love {
+  font-size: 35px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  color: #fff;
+}
+.room-item-love-focus {
+  color: #d41b29;
+}
+.room-item-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+}
+.room-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 15px;
+  font-weight: 400;
+  gap: 2px;
+  position: relative;
+}
+.room-item-place,
+.room-item-price span {
+  font-weight: 500;
+  color: #000;
+}
+.room-item-place,
+.room-item-price span {
+  font-weight: 500;
+  color: #000;
+}
+.room-item-des,
+.room-item-date,
+.room-item-price {
+  color: #717171;
+}
+.room-item-edit {
+  display: flex;
+  gap: 5px;
+}
+.room-item-edit-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+.room-item-edit-btn {
+  height: 30px;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  border: none;
+}
+.update-product-form {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 3;
+}
+.update-product-cont {
+  width: 50%;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #fff;
+}
+
+.update-product-cont .update-profile {
+  margin-bottom: 14px;
+}
+
+.update-product-close {
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+}
+
+.update-product-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.update-product-info {
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.update-gr {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.update-gr .cate-gr {
+  display: block;
+}
+
+.cate-gr .checkbox-gr {
+  display: inline-flex;
+  margin-right: 16px;
+  align-items: center;
+}
+
+.checkbox-gr label {
+  margin-left: 4px;
+}
+
+.checkbox-gr input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox-gr input[type='checkbox']:checked {
+  accent-color: #d72134;
+}
+
+.update-gr .label-field {
+  display: block;
+  text-align: left;
+  color: #808080;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.update-gr .field-update {
+  width: 100%;
+  font-size: 14px;
+  color: #808080;
+  padding: 8px;
+  padding-right: 45px;
+  border: none;
+  border-radius: 5px;
+  outline: 2px solid #808080;
+  background-color: transparent;
+}
+.hidden-img {
+  display: none;
+}
+.show-img {
+  display: inline-block;
+}
+.disable-room {
+  opacity: 0.5;
+}
+.like-room-display {
+  display: flex;
+}
+.count-liked {
+  background-color: #fff;
+  padding: 2px 20px;
+  border-radius: 10px;
+  box-shadow: 0 -4px 32px rgb(0 0 0 / 50%);
+}
+.liked-user-avatar {
+  display: flex;
+  gap: 5px;
+  margin-top: 7px;
+}
+.liked-avatar {
+  width: 20px;
+  height: 20px;
+  list-style: none;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 -4px 32px rgb(0 0 0 / 60%);
+}
+.liked-avatar-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.room-top-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.room-top-background:hover .room-top-hover {
+  display: block;
+}
+.room-top-hover {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+  z-index: 1;
+  border-radius: 15px;
+  display: none;
+}
+
+.form-group input {
+  width: 100%;
+  font-size: 14px;
+  color: #808080;
+  padding: 8px;
+  padding-right: 45px;
+  border: none;
+  border-radius: 5px;
+  outline: 2px solid #808080;
+  background-color: transparent;
+}
+.form-group-fee {
+  display: flex;
+}
+.form-group-fee div {
+  display: block;
+}
+
+.update-my-room-submit {
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.update-my-room-btn:hover {
+  opacity: 0.8;
+}
+.update-my-room-btn {
+  min-width: 100px;
+  padding: 10px 25px;
+  border-radius: 15px;
+  border: 1px solid #717171;
+  background-color: #fff;
+  cursor: pointer;
+}
+.my-room-submit-btn {
+  background-color: #d41b29;
+  color: #fff;
+}

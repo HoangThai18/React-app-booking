@@ -1,0 +1,268 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.profile-cont {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-top: 60px;
+}
+.profile-cont-back:hover {
+  background-color: #f5f5f5;
+}
+.profile-cont-back {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 20px 0 0 30px;
+  padding: 5px 20px;
+  border-radius: 9999px;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+.profile-info {
+  border-radius: 15px;
+  display: flex;
+  align-items: start;
+  padding: 0 200px 0 130px;
+  margin-top: 100px;
+}
+.user-info {
+  margin-left: 100px;
+}
+.profile-info-title {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 10px 0;
+  text-align: initial;
+  margin: 0 0 20px 20px;
+}
+.edit-profile {
+  display: flex;
+  justify-content: start;
+  margin-left: 20px;
+}
+.edit-profile-btn:hover {
+  background-color: #f5f5f5;
+}
+.edit-profile-btn,
+.update-profile-btn {
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: 2px solid #000;
+  margin-top: 5px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.update-profile-btn:hover {
+  opacity: 0.8;
+}
+.update-profile {
+  display: flex;
+  justify-content: end;
+}
+.update-profile-btn {
+  padding: 10px 20px;
+  background-color: #d72134;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+}
+.profile-main-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  padding: 32px 70px;
+  box-shadow: 0 -4px 32px rgb(0 0 0 / 20%);
+  max-height: 250px;
+  position: relative;
+}
+.profile-avatar {
+  border-radius: 50%;
+  width: 105px;
+  height: 105px;
+  object-fit: cover;
+}
+.profile-main-fullname {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 43px;
+  width: 200px;
+  padding-top: 10px;
+}
+
+.profile-secondary-info {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px;
+  color: #717171;
+}
+.profile-secondary-li,
+.profile-secondary-address {
+  list-style: none;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.profile-secondary-address {
+  width: 100%;
+}
+
+.user-info-icon {
+  font-size: 25px;
+  color: #717171;
+}
+.user-info-content {
+  margin-left: 10px;
+}
+
+.profile-secondary-li label,
+.profile-secondary-address label {
+  margin-left: 5px;
+  font-weight: 600;
+  display: block;
+}
+.profile-secondary-li p,
+.profile-secondary-address p {
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Update User Infor */
+.add-avatar:hover {
+  opacity: 0.8;
+}
+.add-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 -4px 32px rgb(0 0 0 / 20%);
+  padding: 5px 15px;
+  border-radius: 9999px;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  cursor: pointer;
+}
+.add-url-btn {
+  margin-top: 30px;
+}
+.update-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.update-url-btn:hover {
+  opacity: 0.8;
+}
+.update-url-btn {
+  padding: 12px 20px;
+  border-radius: 5px;
+  margin-left: 10px;
+  background-color: #d72134;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.update-url {
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
+.add-avatar-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+.update-profile-secondary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px;
+  color: #717171;
+}
+.update-profile-input {
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin: 10px;
+}
+.update-group {
+  width: 48%;
+  position: relative;
+  margin-bottom: 20px;
+}
+.update-group-address {
+  position: relative;
+  width: 100%;
+}
+.update-group-gender {
+  display: flex;
+  justify-content: space-around;
+}
+.cus-gender-items {
+  display: flex;
+  align-items: center;
+}
+.cus-gender-radio {
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+}
+.update-group-input {
+  width: 100%;
+  font-size: 14px;
+  color: #808080;
+  padding: 10px;
+  padding-right: 45px;
+  border: none;
+  border-radius: 5px;
+  outline: 2px solid #808080;
+  background-color: transparent;
+  transition: outline-color 500ms;
+}
+.update-group-input:is(:focus, :valid) {
+  outline-color: #808080;
+}
+.update-group-label {
+  position: absolute;
+  font-size: 14px;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+  translate: 15px 10px;
+  color: #808080;
+  transition:
+    translate 500ms,
+    scale 500ms;
+}
+.update-info-icon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 25px;
+}
+.update-group-input:focus + .update-group-label,
+.update-group-input:valid + .update-group-label {
+  padding-inline: 5px;
+  translate: 5px -17px;
+  scale: 0.8;
+  color: #808080;
+  font-size: 18px;
+  background-color: #fff;
+}

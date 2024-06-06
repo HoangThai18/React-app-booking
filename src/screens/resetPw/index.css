@@ -1,0 +1,170 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.fogPass {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+
+.fogPass-cont {
+  display: flex;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 740px;
+}
+
+.fogPass-form {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  height: 456px;
+}
+
+.fogPass-main {
+  background-color: #fff;
+}
+
+.poster-form {
+  width: 45%;
+  height: 456px;
+}
+
+.welcome-user {
+  display: none;
+}
+
+.fogPass-action {
+  background-color: #fff;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 12px;
+}
+
+.fogPass-logo {
+  width: 70px;
+  height: 70px;
+}
+
+.fogPass-directional {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fogPass-close {
+  color: #808080;
+  font-size: 20px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.fogPass-lable:hover {
+  color: #d41b29;
+}
+.fogPass-lable {
+  color: #808080;
+  font-size: 18px;
+  padding: 15px 15px 5px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.fogPass-close:hover {
+  color: #d41b29;
+}
+
+.fogPass-title {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 20px 0;
+  color: #808080;
+}
+
+.field-group {
+  position: relative;
+  margin: 6px 0 20px 0px;
+}
+
+.form-label {
+  position: absolute;
+  font-size: 14px;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+  translate: 15px 9px;
+  color: #808080;
+  transition:
+    translate 500ms,
+    scale 500ms;
+}
+
+.form-input {
+  font-size: 14px;
+  color: #808080;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: 2px solid #808080;
+  background-color: transparent;
+  transition: outline-color 500ms;
+}
+
+.form-input:is(:focus, :valid) {
+  outline-color: #808080;
+}
+
+.form-input:focus + .form-label,
+.form-input:valid + .form-label {
+  padding-inline: 5px;
+  translate: 5px -17px;
+  scale: 0.8;
+  color: #808080;
+  font-size: 18px;
+  background-color: #fff;
+}
+
+.fogPass-submit-btn:disabled {
+  background-color: #f2f2f2;
+  color: #808080;
+  pointer-events: none;
+}
+
+.fogPass-submit-btn {
+  padding: 12px 40px;
+  margin: 10px 0;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  background-color: #d41b29;
+  color: #fff;
+  cursor: pointer;
+}
+
+.fogPass-submit-btn:hover {
+  opacity: 0.8;
+}
+
+.warning-color {
+  color: #d41b29 !important;
+}
+.success-color {
+  color: #808080;
+}
+.warning-color-outline {
+  outline-color: #d41b29 !important;
+}
+.success-color-outline {
+  outline-color: #808080;
+}

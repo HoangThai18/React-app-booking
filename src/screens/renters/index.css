@@ -1,0 +1,116 @@
+.renters-layout {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.renters-cont {
+  width: 70%;
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 20px;
+  position: relative;
+  min-height: 600px;
+  max-height: 600px;
+}
+.renders-close:hover {
+  color: #d41b29;
+}
+.renders-close {
+  padding: 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+.renders-close-icon {
+  font-size: 24px;
+}
+.renters-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+.renters-list-title {
+  list-style: none;
+  font-weight: 600;
+  padding: 15px 0 !important;
+}
+.renters-list-items {
+  list-style: none;
+  max-height: 450px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  border-radius: 15px;
+}
+.renters-list-items::-webkit-scrollbar {
+  width: 0px;
+}
+.renters-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+.renters-order {
+  flex: 1;
+}
+.renters-avatar {
+  flex: 1;
+}
+.renters-name {
+  flex: 2;
+}
+.renters-email {
+  flex: 2;
+}
+.renters-phone {
+  flex: 2;
+}
+.renters-room {
+  flex: 1;
+}
+.renters-set-renter {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.set-renter-btn:hover {
+  opacity: 0.8;
+}
+.render-btn-add {
+  background-color: #4682b4;
+}
+.render-btn-remove {
+  background-color: #d41b29;
+}
+.set-renter-btn {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  cursor: pointer;
+}
+.renters-avatar-img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.select-motel-renter {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 50px;
+}
+.select-motel-renter-tag {
+  padding: 5px 10px;
+}

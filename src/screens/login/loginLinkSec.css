@@ -1,0 +1,16 @@
+.login-links {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+.login-links p {
+  color: #808080;
+}
+.login-links a {
+  color: #808080;
+  padding: 10px 0;
+}
+.login-links span {
+  font-weight: 600;
+  color: #808080;
+}

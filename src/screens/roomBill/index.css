@@ -1,0 +1,237 @@
+.room-bill-layout {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.room-bill-cont {
+  width: 50%;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+}
+.room-bill-navigate-icon:hover {
+  color: #d41b29;
+}
+.room-bill-close {
+  padding: 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+.room-bill-navigate {
+  width: 100%;
+  padding: 15px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+.room-bill-navigate-icon {
+  font-size: 24px;
+}
+.room-bill-title {
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #d41b29;
+}
+.room-bill-content {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 20px;
+  flex: 1;
+}
+.room-bill-info {
+  display: flex;
+}
+
+.room-bill-top {
+  list-style: none;
+  width: 50%;
+  border: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 10px 20px;
+}
+.room-bill-top li {
+  padding-bottom: 5px;
+}
+.bill-info {
+  width: 100%;
+  font-size: 20px;
+  color: #d41b29;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.bill-house-select {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+#single-select option {
+  background-color: #fff;
+}
+.room-bill-rent {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
+}
+.room-bill-date {
+  font-size: 20px;
+  color: #d41b29;
+  font-weight: 600;
+  margin: 20px;
+}
+.room-bill-rent-item {
+  width: 50%;
+}
+.rent-item-content {
+  min-width: 50%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.room-bill-rent-item-title {
+  margin-right: 10px;
+  font-weight: 600;
+  text-align: start;
+}
+.create-bill-input {
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.room-bill-price-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #d41b29;
+  margin-bottom: 10px;
+}
+.room-bill-price-price {
+  margin: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 35px 0;
+  border: 2px solid #ccc;
+}
+.create-bill-submit {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.create-bill-btn {
+  border: none;
+  padding: 0.8em 2.5em;
+  outline: none;
+  color: white;
+  font-style: 1.2em;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  background: none;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.45);
+}
+
+.create-bill-btn:before,
+.create-bill-btn:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10em;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 105%;
+  height: 105%;
+  content: '';
+  z-index: -2;
+  background-size: 400% 400%;
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+}
+
+.create-bill-btn:before {
+  -webkit-filter: blur(7px);
+  filter: blur(7px);
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  -webkit-animation: pulse 10s infinite ease;
+  animation: pulse 10s infinite ease;
+}
+
+.create-bill-btn:after {
+  -webkit-filter: blur(0.3px);
+  filter: blur(0.3px);
+}
+
+.create-bill-btn:hover:before {
+  width: 115%;
+  height: 115%;
+}
+.room-bill-op {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.bill-house-sec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
+}
+.add-bill-icon:hover {
+  color: #000;
+}
+.add-bill-icon {
+  font-size: 30px;
+  cursor: pointer;
+  color: #717171;
+}
+
+.room-bill-items {
+  min-height: 420px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 0 40px;
+}
+.room-bill-item {
+  border: 2px solid #ccc;
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.room-bill-item-img {
+  width: 100%;
+  height: 50%;
+  padding: 10px;
+  object-fit: cover;
+}
+.room-bill-item-total {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}

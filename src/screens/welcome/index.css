@@ -1,0 +1,34 @@
+.welcome-user {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.wlcome-ctn {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wc-content {
+  padding: 15px 70px;
+}
+.wc-title {
+  color: #d41b29;
+}
+.wc-user-name {
+  width: 100%;
+  min-height: 50px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  color: #000;
+}
