@@ -39,6 +39,20 @@ export async function getImageByRoomAndOrder(roomID) {
     return [];
   }
 }
+export async function getImageByMotelID(motelRoomID) {
+  try {
+    const imgRef = collection(db, 'images');
+    const q = query(imgRef, where('motelRoomID', '==', motelRoomID));
+    const querySnapshot = await getDocs(q);
+    let imgs = null;
+    querySnapshot.forEach((doc) => {
+      imgs = doc.data();
+    });
+    return imgs;
+  } catch (ex) {
+    return [];
+  }
+}
 export async function updateUrlMotelRoom(motelRoomId, urlMotelImg) {
   try {
     const imgRef = collection(db, 'images');

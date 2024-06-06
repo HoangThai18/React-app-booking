@@ -33,104 +33,93 @@ function RoomBill(prop) {
   const [billDetail, setbillDetail] = useState({});
 
   const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
+    setSelectedOption(parseInt(event.target.value, 10));
   };
 
   async function fetchRoomBills(motelRoomID) {
     try {
       const bills = await getRoomBillsData(motelRoomID);
       setRoomBills(bills);
-    } catch (error) {}
+    } catch (error) {
+      console.error('Failed to fetch room bills:', error);
+    }
   }
+
   function parseTimestamp(timestamp) {
     const date = new Date(timestamp);
-
     const monthIndex = date.getMonth();
     const year = date.getFullYear();
-
     const monthName = monthNames[monthIndex];
     return { monthName, year, timestamp };
   }
 
   function total() {
-    const roomPrice = roomData.data.roomsList[selectedOption]?.price;
-    const elecTotal = elecPrice * roomData.data.roomInfo.electricity;
-    const water = roomData.data.roomInfo.water;
-    const security = roomData.data.roomInfo.security;
-    const garbage = roomData.data.roomInfo.garbage;
+    const roomPrice = parseFloat(roomData.data.roomsList[selectedOption]?.price || 0);
+    const elecTotal = parseFloat(elecPrice || 0) * parseFloat(roomData.data.roomInfo.electricity || 0);
+    const water = parseFloat(roomData.data.roomInfo.water || 0);
+    const security = parseFloat(roomData.data.roomInfo.security || 0);
+    const garbage = parseFloat(roomData.data.roomInfo.garbage || 0);
     const totalSum = roomPrice + elecTotal + water + security + garbage;
     setTotalNumber(totalSum);
   }
 
   useEffect(() => {
     total();
-  }, [elecPrice]);
+  }, [elecPrice, selectedOption]);
 
   useEffect(() => {
     fetchRoomBills(roomData?.data?.roomsList[selectedRoomBills]?.motelRoomID);
-  }, [selectedRoomBills]);
+  }, [selectedRoomBills, roomData?.data?.roomsList]);
 
   async function addRoomBill() {
-    const renter = roomData.renters.find(
-      (renter) => renter.motelRoomID === roomData?.data?.roomsList[selectedOption]?.motelRoomID
-    );
+    const selectedRoom = roomData.data.roomsList[selectedOption];
+    const renter = roomData.renters.find((renter) => renter.motelRoomID === selectedRoom?.motelRoomID);
+
     if (elecPrice <= 0) {
       alert('Please enter electricity price!');
       return;
-    } else if (
-      !renter?.avatar ||
-      !renter.email ||
-      !renter.fullName ||
-      !renter.phone ||
-      !renter.time ||
-      !renter.userName
-    ) {
-      alert('There are no renter yet!');
-      return;
-    } else {
-      const billData = {
-        roomID: roomData.data.id,
-        motelRoomID: roomData.data.roomsList[selectedOption]?.motelRoomID,
-        created: Date.now(),
-        modified: Date.now(),
-        month: billMoth,
-        renter: {
-          avatar: renter?.avatar,
-          email: renter.email,
-          fullName: renter.fullName,
-          phone: renter.phone,
-          time: renter.time,
-          userName: renter.userName,
-        },
-        host: {
-          bank: roomData.host.bank,
-          fullName: roomData.host.fullName,
-          email: roomData.host.email,
-          phone: roomData.host.phone,
-        },
-        roomService: {
-          price: roomData.data.roomsList[selectedOption]?.price,
-          elecPrice: elecPrice * roomData.data.roomInfo.electricity,
-          water: roomData.data.roomInfo.water,
-          security: roomData.data.roomInfo.security,
-          garbage: roomData.data.roomInfo.garbage,
-        },
-        status: 1,
-        roomName: roomData.data.roomsList[selectedOption].roomName,
-        houseName: roomData.data.roomInfo.name,
-        billTotal:
-          roomData.data.roomsList[selectedOption]?.price +
-          elecPrice * roomData.data.roomInfo.electricity +
-          roomData.data.roomInfo.water +
-          roomData.data.roomInfo.security +
-          roomData.data.roomInfo.garbage,
-      };
-      await addNewBill(billData);
-      alert('Success!');
-      const bills = await getRoomBillsData(roomData?.data?.roomsList[selectedRoomBills]?.motelRoomID);
-      setRoomBills(bills);
-      setBillStatusPopUp(1);
     }
+
+    const billData = {
+      roomID: roomData.data.id,
+      motelRoomID: selectedRoom?.motelRoomID,
+      created: Date.now(),
+      modified: Date.now(),
+      month: billMoth,
+      renter: {
+        avatar: renter?.avatar,
+        email: renter?.email,
+        fullName: renter?.fullName,
+        phone: renter?.phone,
+        time: renter?.time,
+        userName: renter?.userName,
+      },
+      host: {
+        bank: roomData.host.bank,
+        fullName: roomData?.host?.fullName,
+        email: roomData?.host?.email,
+        phone: roomData?.host?.phone,
+      },
+      roomService: {
+        price: selectedRoom?.price,
+        elecPrice: elecPrice * roomData.data.roomInfo.electricity,
+        water: roomData.data.roomInfo.water,
+        security: roomData.data.roomInfo.security,
+        garbage: roomData.data.roomInfo.garbage,
+      },
+      status: 1,
+      roomName: selectedRoom?.roomName,
+      houseName: roomData.data.roomInfo.name,
+      billTotal: totalNumber,
+    };
+
+    await addNewBill(billData);
+    alert('Success!');
+    setBillMoth(0);
+    setElecPrice(0);
+    const bills = await getRoomBillsData(selectedRoom?.motelRoomID);
+    setRoomBills(bills);
+    setBillStatusPopUp(0);
   }
 
   return (
@@ -232,7 +221,7 @@ function RoomBill(prop) {
                 <div className="room-bill-info">
                   <ul className="room-bill-top">
                     <li className="bill-info">{billDetail.houseName}</li>
-                    <li>Host: {billDetail.host.fullName}</li>
+                    <li>Host: {billDetail.host?.fullName}</li>
                     <li>Email: {billDetail.host?.email}</li>
                     <li>Bank name: {billDetail?.host?.bank?.bankName}</li>
                     <li>Bank account: {billDetail?.host?.bank?.bankAcc}</li>
@@ -241,42 +230,42 @@ function RoomBill(prop) {
                     <li className="bill-info">
                       <p>{billDetail.roomName}</p>
                     </li>
-                    <li>Renter name: {billDetail.renter.fullName}</li>
-                    <li>Email: {billDetail.renter.email}</li>
-                    <li>Phone: {billDetail.renter.phone}</li>
-                    <li>Rental period: {billDetail.renter.time === 0 ? sixMont : twelveMont}</li>
+                    <li>Renter name: {billDetail?.renter?.fullName}</li>
+                    <li>Email: {billDetail?.renter?.email}</li>
+                    <li>Phone: {billDetail?.renter?.phone}</li>
+                    <li>Rental period: {billDetail?.renter?.time === 0 ? sixMont : twelveMont}</li>
                   </ul>
                 </div>
                 <p className="room-bill-date">
-                  Rent for {monthNames[billDetail.month]} {new Date(billDetail.created).getFullYear()}
+                  Rent for {monthNames[billDetail?.month]} {new Date(billDetail.created).getFullYear()}
                 </p>
                 <div className="room-bill-rent">
                   <div className="room-bill-rent-item">
                     <div className="rent-item-content">
                       <p className="room-bill-rent-item-title">Room rent: </p>
-                      <p>{billDetail.roomService.price}/Month</p>
+                      <p>{billDetail?.roomService?.price}/Month</p>
                     </div>
                     <div className="rent-item-content">
                       <p className="room-bill-rent-item-title">Electricity: </p>
-                      <p>{billDetail.roomService.elecPrice}$</p>
+                      <p>{billDetail?.roomService?.elecPrice}$</p>
                     </div>
                     <div className="rent-item-content">
                       <p className="room-bill-rent-item-title">Water: </p>
-                      <p>{billDetail.roomService.water}$/Month</p>
+                      <p>{billDetail?.roomService?.water}$/Month</p>
                     </div>
                     <div className="rent-item-content">
                       <p className="room-bill-rent-item-title">Security: </p>
-                      <p>{billDetail.roomService.security}$/Month</p>
+                      <p>{billDetail?.roomService?.security}$/Month</p>
                     </div>
                     <div className="rent-item-content">
                       <p className="room-bill-rent-item-title">Garbage: </p>
-                      <p>{billDetail.roomService.garbage}$/Month</p>
+                      <p>{billDetail?.roomService?.garbage}$/Month</p>
                     </div>
                   </div>
                   <div className="room-bill-rent-item">
                     <div className="room-bill-price-price">
                       <p className="room-bill-price-title">Total</p>
-                      <p>{billDetail.billTotal}$</p>
+                      <p>{billDetail?.billTotal}$</p>
                     </div>
                   </div>
                 </div>
@@ -337,7 +326,7 @@ function RoomBill(prop) {
                 <input
                   className="create-bill-input"
                   type="number"
-                  min="0"
+                  min="1"
                   maxLength="12"
                   onKeyPress={(e) => {
                     if (e.key === '-' || e.key === 'e' || e.key === '.' || e.target.value.length >= 2) {

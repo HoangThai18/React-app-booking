@@ -51,7 +51,7 @@ function LoginPage(props) {
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('expirationTime', expTime.toString());
     localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('sidebarNo', '1');
+    localStorage.setItem('sidebarNo', '-1');
   }
 
   async function login(e) {

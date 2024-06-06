@@ -47,6 +47,40 @@ export async function getRentersData(roomID) {
     return [];
   }
 }
+export async function getRentersRented(motelRoomID) {
+  try {
+    const rentersRef = collection(db, 'renters');
+    const q = query(rentersRef, where('motelRoomID', '==', motelRoomID), where('isRenter', '==', 1));
+    const querySnapshot = await getDocs(q);
+
+    let renter = null;
+
+    querySnapshot.forEach((doc) => {
+      renter = doc.data();
+    });
+    return renter;
+  } catch (ex) {
+    return [];
+  }
+}
+export async function getRenterByUserName(userName) {
+  try {
+    const rentersRef = collection(db, 'renters');
+    const q = query(rentersRef, where('userName', '==', userName), where('isRenter', '==', 1));
+    const querySnapshot = await getDocs(q);
+
+    let renter = null;
+
+    querySnapshot.forEach((doc) => {
+      renter = doc.data();
+    });
+
+    return renter;
+  } catch (ex) {
+    console.error('Error fetching renter by userName:', ex);
+    return null;
+  }
+}
 export async function getRenterOfRoom(roomID) {
   try {
     const rentersRef = collection(db, 'renters');

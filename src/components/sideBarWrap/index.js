@@ -22,9 +22,9 @@ const SideBarWrap = (props) => {
       {userRoleStatus === userRole.MOD && (
         <ul className="sidebar-wrap-items">
           <li
-            className={`sidebar-wrap-item ${props.sidebarDisplay === 111 ? selectedCss : ''}`}
+            className={`sidebar-wrap-item ${props.sidebarDisplay === -1 ? selectedCss : ''}`}
             onClick={() => {
-              props.setSidebarDisplay(111);
+              props.setSidebarDisplay(-1);
               props.setSelectedSidebar(-1);
             }}
           >
@@ -66,9 +66,9 @@ const SideBarWrap = (props) => {
       {userRoleStatus === userRole.ADMIN && (
         <ul className="sidebar-wrap-items">
           <li
-            className={`sidebar-wrap-item ${props.sidebarDisplay === 1 ? selectedCss : ''}`}
+            className={`sidebar-wrap-item ${props.sidebarDisplay === -1 ? selectedCss : ''}`}
             onClick={() => {
-              props.setSidebarDisplay(1);
+              props.setSidebarDisplay(-1);
               props.setSelectedSidebar(-1);
             }}
           >
@@ -111,9 +111,9 @@ const SideBarWrap = (props) => {
       {userRoleStatus === userRole.NORMAL_USER && (
         <ul className="sidebar-wrap-items">
           <li
-            className={`sidebar-wrap-item ${props.sidebarDisplay === 11 ? selectedCss : ''}`}
+            className={`sidebar-wrap-item ${props.sidebarDisplay === -1 ? selectedCss : ''}`}
             onClick={() => {
-              props.setSidebarDisplay(11);
+              props.setSidebarDisplay(-1);
               props.setSelectedSidebar(-1);
             }}
           >
@@ -138,7 +138,7 @@ const SideBarWrap = (props) => {
             }}
           >
             <MdOutlineBed className="sidebar-wrap-item-icon"></MdOutlineBed>
-            <p className="sidebar-wrap-item-title">Rooms</p>
+            <p className="sidebar-wrap-item-title">My Room</p>
           </li>
         </ul>
       )}

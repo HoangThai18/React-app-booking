@@ -1,7 +1,7 @@
 import db from './firebase';
 import { collection, getDocs, getDoc, query, where, updateDoc, doc, addDoc } from 'firebase/firestore';
-import { getImageByRoomAndOrder, addMotelImg, addMainImg } from './imageDTO';
-import { getRenterOfRoom } from './rentersDTO';
+import { getImageByRoomAndOrder, addMotelImg, addMainImg, getImageByMotelID } from './imageDTO';
+import { getRenterOfRoom, getRentersRented } from './rentersDTO';
 import { getUserByUsername } from './userDTO';
 import { updateUrlMotelRoom } from './imageDTO';
 
@@ -22,20 +22,21 @@ export async function getRoomData() {
   }
 }
 
-export async function getRoomID() {
+export async function getRoomRented(roomID, motelroomID) {
   try {
     const userRef = collection(db, 'rooms');
-    const q = query(userRef);
+    const q = query(userRef, where('id', '==', roomID));
     const querySnapshot = await getDocs(q);
 
-    let rooms = [];
+    let room = null;
 
-    querySnapshot.forEach((doc) => {
-      const roomId = doc.id;
-
-      rooms.push(roomId);
-    });
-    return rooms;
+    for (const document of querySnapshot.docs) {
+      const images = await getImageByMotelID(motelroomID);
+      const renter = await getRentersRented(motelroomID);
+      const host = await getUserByUsername(document.data().createdBy);
+      room = { data: document.data(), imgs: images, renter: renter, host: host };
+    }
+    return room;
   } catch (ex) {
     console.error('Error fetching rooms:', ex);
     return [];

@@ -352,12 +352,11 @@ function RoomDetail() {
                     </>
                   )}
                   {roomArea?.data?.roomsList?.map((room, index) => (
-                    <>
+                    <div key={`room${index}detail`}>
                       <li
                         className={`${roomArea.data.roomsList[index].status === 0 ? disNameMotelRoom : ''} ${
                           selecMotelRoom === index ? selectedRoomDtail : ''
                         } available-nav-items`}
-                        key={`room${index}detail`}
                         onClick={() => {
                           setSelecMotelRoom(index);
                         }}
@@ -402,7 +401,7 @@ function RoomDetail() {
                           )}
                         </>
                       </li>
-                    </>
+                    </div>
                   ))}
                 </ul>
               </div>

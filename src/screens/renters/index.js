@@ -25,14 +25,14 @@ function Renters({ selectedMyRoom, setIsRenters }) {
   }, [selectedMyRoom.data.id]);
 
   async function setRenterRole() {
-    await cleanRenters(renterData.motelRoomID);
-    setRenter(renterData.motelRoomID, renterData?.userName);
+    await cleanRenters(renterData?.motelRoomID);
+    setRenter(renterData?.motelRoomID, renterData?.userName);
     const renters = await getRentersData(selectedMyRoom.data.id);
     setRenters(renters);
-    await disableMotelRoom(selectedMyRoom.data.id, selectedMyRoom.data.roomsList[selectedMotel].motelRoomID, false);
+    await disableMotelRoom(selectedMyRoom.data.id, selectedMyRoom.data.roomsList[selectedMotel]?.motelRoomID, false);
   }
   async function removeRenterRole() {
-    await removeRenter(renterData.motelRoomID, renterData?.userName);
+    await removeRenter(renterData?.motelRoomID, renterData?.userName);
     const renters = await getRentersData(selectedMyRoom.data.id);
     setRenters(renters);
   }

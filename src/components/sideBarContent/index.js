@@ -8,14 +8,14 @@ import SideBarDisplay from '../../screens/sidebarDisplay';
 import RentedRoom from '../../screens/rentedRoom';
 
 const sideBarState = {
-  ADMIN_HOME: 1,
+  ADMIN_HOME: -1,
   ADMIN_ROOMS: 2,
   ADMIN_CHAT: 3,
   ADMIN_LIST_USER: 4,
-  USER_HOME: 11,
+  USER_HOME: -1,
   USER_ROOMS: 12,
   USER_RENTED_ROOM: 13,
-  MOD_HOME: 111,
+  MOD_HOME: -1,
   MOD_ROOMS: 222,
   MOD_MY_ROOMS: 333,
   MOD_CHAT: 444,

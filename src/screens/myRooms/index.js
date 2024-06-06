@@ -22,11 +22,11 @@ const msgConfirmDisable = 'You will disable the active state for this room';
 const roomInfoChild = {
   address: '',
   des: '',
-  electricity: '',
-  garbage: '',
-  name: '',
-  security: '',
-  water: '',
+  electricity: 1,
+  garbage: 1,
+  name: 1,
+  security: 1,
+  water: 1,
 };
 const defaulObj = {
   urlImage: '',

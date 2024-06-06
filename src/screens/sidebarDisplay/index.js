@@ -203,58 +203,64 @@ function SideBarDisplay(props) {
               roomByCateId.map((room, index) => (
                 <div key={roomIDs[index]}>
                   {room?.data?.status === 1 && (
-                    <div
-                      className="room-item"
-                      onClick={() => {
-                        dispatch(setCurrentRoom(roomByCateId.find((element) => element.id === room.id)));
-                        goToDetail();
-                      }}
-                    >
-                      <div
-                        className="room-item-top"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                        }}
-                      >
-                        {roomLiked &&
-                        roomLiked.some &&
-                        roomLiked.some((liked) => liked.roomID === room.id && liked.status === 1) ? (
-                          <GoHeartFill
-                            className={`room-item-love ${roomIcon}`}
-                            onClick={() => {
-                              setUnLikeRoomID(room.id);
-                            }}
-                          ></GoHeartFill>
-                        ) : (
-                          <GoHeartFill
-                            className={'room-item-love'}
-                            onClick={() => {
-                              setLikeRoomID(room.id);
-                            }}
-                          ></GoHeartFill>
+                    <div className="room-item">
+                      <div className="room-top-background">
+                        <div
+                          className="room-top-hover"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            dispatch(setCurrentRoom(roomByCateId.find((element) => element.id === room.id)));
+                            goToDetail();
+                          }}
+                        ></div>
+
+                        <div
+                          className="room-item-top"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
+                        >
+                          {roomLiked &&
+                          roomLiked.some &&
+                          roomLiked.some((liked) => liked.roomID === room.id && liked.status === 1) ? (
+                            <GoHeartFill
+                              className={`room-item-love ${roomIcon}`}
+                              onClick={() => {
+                                setUnLikeRoomID(room.id);
+                              }}
+                            ></GoHeartFill>
+                          ) : (
+                            <GoHeartFill
+                              className={'room-item-love'}
+                              onClick={() => {
+                                setLikeRoomID(room.id);
+                              }}
+                            ></GoHeartFill>
+                          )}
+                        </div>
+                        {imageLoaded[index] === false && (
+                          <img
+                            className={`room-item-img ${imageLoaded[index] === false ? '' : showImg}`}
+                            src={require('../../resources/images/image_loading.gif')}
+                            alt={roomIDs[index]}
+                          />
                         )}
-                      </div>
-                      {imageLoaded[index] === false && (
                         <img
-                          className={`room-item-img ${imageLoaded[index] === false ? '' : showImg}`}
-                          src={require('../../resources/images/image_loading.gif')}
+                          key={room.id}
+                          className={`room-item-img ${imageLoaded[index] === true ? showImg : hiddenImg}`}
+                          src={room.imgs[0].data.src && room.imgs[0].data.src}
                           alt={roomIDs[index]}
+                          onClick={() => {}}
+                          onLoad={() => {
+                            setImageLoaded((prevImageLoaded) => {
+                              const newArr = [...prevImageLoaded];
+                              newArr[index] = true;
+                              return newArr;
+                            });
+                          }}
                         />
-                      )}
-                      <img
-                        key={room.id}
-                        className={`room-item-img ${imageLoaded[index] === true ? showImg : hiddenImg}`}
-                        src={room.imgs[0].data.src && room.imgs[0].data.src}
-                        alt={roomIDs[index]}
-                        onClick={() => {}}
-                        onLoad={() => {
-                          setImageLoaded((prevImageLoaded) => {
-                            const newArr = [...prevImageLoaded];
-                            newArr[index] = true;
-                            return newArr;
-                          });
-                        }}
-                      />
+                      </div>
+
                       <div className="room-item-content" onClick={() => {}}>
                         <p className="my-room-item-place">Place: {room?.data.place}</p>
                         <p className="my-room-item-des">Describe: {room?.data.describe}</p>

@@ -12,11 +12,16 @@
 }
 .room-bill-cont {
   width: 50%;
+  max-height: 600px;
   background-color: #fff;
   border: 2px solid #ccc;
   border-radius: 15px;
   padding: 20px;
   position: relative;
+  overflow: scroll;
+}
+.room-bill-cont::-webkit-scrollbar {
+  width: 0px;
 }
 .room-bill-navigate-icon:hover {
   color: #d41b29;
