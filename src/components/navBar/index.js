@@ -7,7 +7,6 @@ import { BiSearch } from 'react-icons/bi';
 import { BsList } from 'react-icons/bs';
 import { FiX } from 'react-icons/fi';
 import { setLoading } from '../../actions/config';
-
 function NavBar() {
   const [dropdownStatus, setDropdownStatus] = useState(false);
   const [searchContent, setSearchContent] = useState('');
