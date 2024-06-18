@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDOqq7Xiq4HOD8O2zRdbk_4YNOA2c5usDY',
-  authDomain: 'booking-app-cc29d.firebaseapp.com',
-  projectId: 'booking-app-cc29d',
-  storageBucket: 'booking-app-cc29d.appspot.com',
-  messagingSenderId: '806486781637',
-  appId: '1:806486781637:web:3df0cdd4f255f4991d4aac',
+  apiKey: 'AIzaSyBap2hQM8yIG934FxGKb7oGKXRd3sM1SOg',
+  authDomain: 'aurora-reactjs-training.firebaseapp.com',
+  projectId: 'aurora-reactjs-training',
+  storageBucket: 'aurora-reactjs-training.appspot.com',
+  messagingSenderId: '438985091248',
+  appId: '1:438985091248:web:bdf54b6c979813060ab375',
 };
 
 // Initialize Firebase
